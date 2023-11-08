@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget, expenses, dispatch } = useContext(AppContext);
+    const { budget, expenses, currency, dispatch } = useContext(AppContext);
     const maxBudget = 20000; // Maximum value of budget
 
     const handleBudgetChange = (event) => {
@@ -26,8 +26,8 @@ const Budget = () => {
     }
     return (
 <div className='alert alert-secondary'>
-<span style={{ paddingRight: '0.75rem' }}>Budget: £{budget}</span>
-<input type="number" step="10" max={maxBudget} value={budget} onChange={handleBudgetChange}></input>
+<span>Budget: {currency} </span>
+<input type="number" step="10" max={maxBudget} value={budget} onChange={handleBudgetChange} style={{ width: '150px' }} ></input>
 </div>
     );
 };
